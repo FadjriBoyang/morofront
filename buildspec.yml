@@ -10,11 +10,11 @@ phases:
     commands:
       - npm run build
 
-reports:
-  UnitTests:
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+  artifacts:
     files:
-      - 'unittests.xml'
-  NewCoverage: #
-    files:
-      - 'coverage.xml'
-    file-format: COBERTURAXML
+      - '**/*'
+    base-directory: dist
