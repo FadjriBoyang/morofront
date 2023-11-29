@@ -1,20 +1,15 @@
-version: 0.2
-
+version: 0.3
 
 phases:
   install:
     commands:
-      - npm install
-
+      - echo Updating npm
+      - npm update -g npm
+      - echo Installing jQuery Bootstrap-Vue
+      - npm install --save jquery bootstrap-vue
   build:
     commands:
       - npm run build
-
-  post_build:
-    commands:
-      - echo Build completed on `date`
-
 artifacts:
   files:
     - '**/*'
-  base-directory: dist
