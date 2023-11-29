@@ -27,7 +27,8 @@ jobs:
       run: ls
       working-directory: public
     - name: Build
+      working-directory: frontend/vue-project
       run: |
         npm install
         npm run build
-        working-directory: frontend/vue-project
+ 
