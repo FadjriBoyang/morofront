@@ -30,3 +30,4 @@ jobs:
       run: |
         npm install
         npm run build
+        working-directory: frontend/vue-project
