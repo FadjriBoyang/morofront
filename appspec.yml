@@ -2,7 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/
+    destination: /app
+    overwrite: true
+
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies

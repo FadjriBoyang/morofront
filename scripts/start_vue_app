@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-cd /var/www/html/
+cd /app
 
 
-npm start
+npm run dev

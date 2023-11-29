@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd /var/www/html/
+cd /app
 
 npm run build
