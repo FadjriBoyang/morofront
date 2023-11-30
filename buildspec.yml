@@ -1,10 +1,7 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-      - nvm install 12
-      - npm install -g npm@7
+
 
   build:
     commands:

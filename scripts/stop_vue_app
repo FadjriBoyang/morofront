@@ -5,14 +5,11 @@ log_file="/path/to/your/logfile.log"
 
 echo "Stopping Vue.js application at $(date)" >> "$log_file"
 
-# Navigate to the application directory
 cd /app
-
-# Add a log entry to confirm script execution
-echo "Script executed successfully at $(date)" >> "$log_file"
 
 # Check if the process is running before attempting to stop it
 if pgrep -f "vue-project" > /dev/null; then
+  echo "Found Vue.js application process. Stopping..." >> "$log_file"
   pkill -f "vue-project" 2>> "$log_file"
   echo "Vue.js application stopped at $(date)" >> "$log_file"
 else
