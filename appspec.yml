@@ -18,7 +18,3 @@ hooks:
     - location: scripts/start_vue_app
       timeout: 300
       runas: root
-  ApplicationStop:
-    - location: scripts/stop_vue_app
-      timeout: 300
-      runas: root
