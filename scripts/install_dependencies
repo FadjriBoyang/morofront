@@ -7,8 +7,4 @@ cd /app
 echo second---------
 ls
 # Remove existing node_modules and package-lock.json
-rm -rf node_modules
-rm package-lock.json
 
-# Install Node.js dependencies
-npm install
