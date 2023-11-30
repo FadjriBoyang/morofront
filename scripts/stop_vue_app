@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Add log file path
-killall node
+echo dawsd
