@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /app
+
 
 sudo yum update
 sudo yum install -y apt
