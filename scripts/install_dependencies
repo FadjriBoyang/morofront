@@ -2,12 +2,6 @@
 
 
 
-# Change to the directory where package.json is located
-
-
-# Check if package.json exists before running npm commands
-#if [ -f "package.json" ]; then
-  npm install
-#else
-  #echo "No package.json found. Skipping npm commands."
-#fi
+apt-get install nodejs -y
+apt-get install npm -y
+npm install
