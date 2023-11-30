@@ -1,4 +1,4 @@
 #!/bin/bash
-
+cd /app
 # Add log file path
 echo dawsd
