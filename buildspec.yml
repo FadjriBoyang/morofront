@@ -10,4 +10,9 @@ phases:
 
 artifacts:
   files:
-    - aws s3 sync dist/ s3://codepipeline-ap-southeast-1-847941550065/moro/BuildArtif/
+    - dist/**/*
+    - public/**/*
+    - src/**/*
+    - package.json
+    - appspec.yml
+    - scripts/**/*
