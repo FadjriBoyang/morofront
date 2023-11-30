@@ -2,9 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /app
-    overwrite: true
 
+    destination: /home/ec2-user/deploy/
+    overwrite: true
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
