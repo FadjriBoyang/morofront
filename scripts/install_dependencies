@@ -1,12 +1,12 @@
 #!/bin/bash
 cd /app
 
-sudo apt-get update
-sudo apt-get install -y apt
+sudo yum update
+sudo yum install -y apt
 sudo yum install -y nodejs npm
 
 # Change to the directory where package.json is located
-cd /opt/codedeploy-agent/
+
 
 # Check if package.json exists before running npm commands
 #if [ -f "package.json" ]; then
