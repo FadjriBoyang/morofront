@@ -1,6 +1,13 @@
 #!/bin/bash
 
+# Add log file path
+log_file="/path/to/your/logfile.log"
+
+echo "Stopping Vue.js application at $(date)" >> "$log_file"
+
 cd /app
 
+# Try pkill with more details for debugging
+pkill -f "vue_project" 2>> "$log_file"
 
-pkill -f "vue_project"
+echo "Vue.js application stopped at $(date)" >> "$log_file"
