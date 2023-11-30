@@ -8,9 +8,4 @@ phases:
       - npm install
       - npm run build
 
-artifacts:
-  files:
-    - dist/**/*
-    - package.json
-    - appspec.yml
-    - scripts/**/*
+
