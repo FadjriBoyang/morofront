@@ -1,16 +1,4 @@
 #!/bin/bash
 
 # Add log file path
-log_file="/path/to/your/logfile.log"
-
-echo "Stopping Vue.js application at $(date)" >> "$log_file"
-
-cd /app
-
-# Check if the process is running before attempting to stop it
-if pgrep -f "vue-project" > /dev/null; then
-  pkill -f "vue-project" 2>> "$log_file"
-  echo "Vue.js application stopped at $(date)" >> "$log_file"
-else
-  echo "No Vue.js application process found. Nothing to stop." >> "$log_file"
-fi
+killall node
