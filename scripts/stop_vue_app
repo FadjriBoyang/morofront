@@ -3,4 +3,4 @@
 cd /app
 
 
-killall node
+pkill -f "vue_project"
