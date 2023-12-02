@@ -33,7 +33,7 @@ workflows:
       - aws-ecr/build-and-push-image:
           repo: "${AWS_RESOURCE_NAME_PREFIX}"
           tag: "latest"
-          auth: 
+
 
       - setup-ec2:
           requires:
