@@ -30,10 +30,10 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - aws-ecr/build-and-push-image:
+      - aws-ecr/build_and_push_image:
          
           tag: "latest"
 
       - setup-ec2:
           requires:
-            - aws-ecr/build-and-push-image
+            - aws-ecr/build_and_push_image
