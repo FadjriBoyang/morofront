@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@6.15
-  aws-cli: circleci/aws-cli@3.1.1
+  aws-ecr: circleci/aws-ecr@9.0.1
+  aws-cli: circleci/aws-cli@4.1.2
 
 jobs:
   setup-ec2:
@@ -31,7 +31,7 @@ workflows:
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          repo: "morofront"  # replace with your actual ECR repository name
+         
           tag: "latest"
 
       - setup-ec2:
