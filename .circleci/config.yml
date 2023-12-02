@@ -31,9 +31,8 @@ workflows:
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
+          repo: "morofront"  # replace with your actual ECR repository name
           tag: "latest"
-
 
       - setup-ec2:
           requires:
