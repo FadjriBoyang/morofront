@@ -66,7 +66,7 @@ resource "aws_security_group" "ec2_sg" {
 }
 
 resource "aws_instance" "app_server" {
-    ami = "ami-02453f5468b897e31"
+    ami = "ami-079b5e5b3971bd10d"
     instance_type = "t2.micro"
     user_data = file("../userData.sh")
     iam_instance_profile = aws_iam_instance_profile.iam_instance_profile.name
