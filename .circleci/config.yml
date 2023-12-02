@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@9.0.1
-  aws-cli: circleci/aws-cli@4.1.2
+  aws-ecr: circleci/aws-ecr@6.15
+  aws-cli: circleci/aws-cli@3.1.1
 
 jobs:
   setup-ec2:
@@ -30,12 +30,11 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - aws-ecr/build_and_push_image:
-          repo: "l8c4a5k9/morofront"
+      - aws-ecr/build-and-push-image:
+          repo: "${AWS_RESOURCE_NAME_PREFIX}"
           tag: "latest"
           auth: 
-          username: "${AWS_ACCOUNT_ID}"
-          password: "${AWS_ECR_PASSWORD}"
+
       - setup-ec2:
           requires:
-            - aws-ecr/build_and_push_image
+            - aws-ecr/build-and-push-image
