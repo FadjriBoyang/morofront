@@ -33,6 +33,9 @@ workflows:
       - aws-ecr/build_and_push_image:
           repo: "l8c4a5k9/morofront"
           tag: "latest"
+          auth: 
+          username: "${AWS_ACCOUNT_ID}"
+          password: "${AWS_ECR_PASSWORD}"
       - setup-ec2:
           requires:
             - aws-ecr/build_and_push_image
