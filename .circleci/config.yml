@@ -35,4 +35,4 @@ workflows:
           tag: "latest"
       - setup-ec2:
           requires:
-            - aws-ecr/build-and-push-image
+            - aws-ecr/build_and_push_image
