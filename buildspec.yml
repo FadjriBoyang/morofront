@@ -19,3 +19,6 @@ artifacts:
     - scripts/start_vue_app.sh
     - scripts/stop_vue_app.sh
     - scripts/install_dependencies.sh
+    - index.html
+    - package-lock.json
+    - vite.config.js
