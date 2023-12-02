@@ -1,0 +1,38 @@
+version: 2.1
+
+orbs:
+  aws-ecr: circleci/aws-ecr@9.0.1
+  aws-cli: circleci/aws-cli@4.1.2
+
+jobs:
+  setup-ec2:
+    executor: aws-cli/default
+    steps:
+      - checkout
+      - run:
+        name: Install terraform
+        command: |
+          sudo apt-get update
+          sudo apt-get install -y gnupg software-properties-common curl
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+          sudo apt-add-repository "deb [arch=amd64] https://apt.relealses.hashicorp.com $(lsb_release -cs) main"
+
+          sudo apt-get update && sudo apt-get install terraform
+      - aws-cli/setup:
+        profile-name: my-profile
+      - run:
+        name: Run terraform
+        command: |
+          cd terraform
+          terraform init
+          terraform validate
+          terraform apply -auto-approve
+workflows:
+  build-and-deploy:
+    jobs:
+    - aws-ecr/build-and-push-image:
+        repo: "l8c4a5k9/morofront"
+        tag: "latest"
+    - setup-ec2:
+      requires:
+      - aws-ecr/build-and-push-image
