@@ -15,4 +15,7 @@ artifacts:
     - src/**/*
     - package.json
     - appspec.yml
-    - scripts/**/*
+    - scripts/build_vue_app.sh
+    - scripts/start_vue_app.sh
+    - scripts/stop_vue_app.sh
+    - scripts/install_dependencies.sh
