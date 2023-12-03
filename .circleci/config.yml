@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@9.0.1
   aws-cli: circleci/aws-cli@4.0
+  aws-ecr: circleci/aws-ecr@9.0.1
 
 jobs:
   setup-ec2:
@@ -34,7 +34,11 @@ workflows:
       - aws-ecr/build_and_push_image:
           repo: "l8c4a5k9/morofront"
           tag: "latest"
-
+          account_id: <AWS_ACCOUNT_ID>
+          auth:
+            - aws-cli/setup:
+                profile-name: my-profile
+                role_arn: arn:aws:iam::855044123636:role/ec2_boyang_role
       - setup-ec2:
           requires:
             - aws-ecr/build_and_push_image
