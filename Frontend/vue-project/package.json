@@ -14,7 +14,6 @@
     "cdbootstrap": "^1.3.4",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
-    "leaflet": "^1.9.4",
     "vue": "^3.3.4",
     "vue-jwt-decode": "^0.1.0",
     "vue-router": "^4.2.5"
