@@ -12,7 +12,7 @@ jobs:
           profile-name: my-profile
       - run:
           name: Authenticate with ECR
-          command: aws ecr get-login-password --region <AWS_REGION> | docker login --username AWS --password-stdin <AWS_ECR_ACCOUNT_URL>
+          command: aws ecr get-login-password --region <AWS_REGION> 
 
   build-and-deploy:
     docker:

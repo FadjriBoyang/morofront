@@ -13,7 +13,8 @@ sudo ./aws/install
 
 
 
-aws ecr get-login-password --region <AWS_REGION> | docker login --username AWS --password-stdin <AWS_ECR_ACCOUNT_URL>
+aws ecr get-login-password --region <AWS_REGION> 
+docker login --username AWS --password-stdin <AWS_ECR_ACCOUNT_URL>
 
 docker pull <AWS_ECR_ACCOUNT_URL>/<AWS_RESOURCE_NAME_PREFIX>:latest
 
