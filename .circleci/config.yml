@@ -33,6 +33,10 @@ workflows:
       - aws-ecr/build_and_push_image:
           repo: "l8c4a5k9/morofront"
           tag: "latest"
+          auth:
+            - aws-cli/setup:
+                profile: default
+                role_arn: arn:aws:iam::855044123636:role/ec2_boyang_role
       - setup-ec2:
           requires:
             - aws-ecr/build_and_push_image
