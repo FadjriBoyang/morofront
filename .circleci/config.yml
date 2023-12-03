@@ -1,34 +1,39 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@6.15
-  aws-cli: circleci/aws-cli@3.1.1
+  aws-ecr: circleci/aws-ecr@9.0.1
+  aws-cli: circleci/aws-cli@4.1.2
 
 jobs:
-  authenticate-ecr:
+  setup-ec2:
     executor: aws-cli/default
-    steps:
-      - aws-cli/setup:
-          profile-name: my-profile
-      - run:
-          name: Authenticate with ECR
-          command: aws ecr get-login-password --region <AWS_REGION> 
-
-  build-and-deploy:
-    docker:
-      - image: cimg/base:stable
     steps:
       - checkout
       - run:
-          name: Build and push Docker image
+          name: Install terraform
           command: |
-            # Your Docker build and push commands here
+            sudo apt-get update
+            sudo apt-get install -y gnupg software-properties-common curl
+            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+            sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+            sudo apt-get update && sudo apt-get install terraform
+      - aws-cli/setup:
+          profile-name: my-profile
+      - run:
+          name: Run terraform
+          command: |
+            cd terraform
+            terraform init
+            terraform validate
+            terraform apply -auto-approve
 
 workflows:
-  version: 2
   build-and-deploy:
     jobs:
-      - authenticate-ecr
-      - build-and-deploy:
+      - aws-ecr/build-and-push-image:
+          repo: "l8c4a5k9/morofront"
+          tag: "latest"
+      - setup-ec2:
           requires:
-            - authenticate-ecr
+            - aws-ecr/build-and-push-image
+            - aws-ecr/build-and-push-image
