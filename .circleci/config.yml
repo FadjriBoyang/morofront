@@ -35,7 +35,7 @@ workflows:
           tag: "latest"
           auth:
             - aws-cli/setup:
-
+                profile-name: my-profile
                 role_arn: arn:aws:iam::855044123636:role/ec2_boyang_role
       - setup-ec2:
           requires:
