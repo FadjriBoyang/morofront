@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  aws-cli: circleci/aws-cli@3.1.1
-  aws-ecr: circleci/aws-ecr@6.15
+  aws-cli: circleci/aws-cli@4.0
+  aws-ecr: circleci/aws-ecr@9.0.1
 
 jobs:
   setup-ec2:
@@ -29,12 +29,31 @@ jobs:
             terraform apply -auto-approve
 
 workflows:
-  build-and-deploy:
+  build_and_push_image:
     jobs:
       - aws-ecr/build_and_push_image:
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          tag: "latest"
-
-      - setup-ec2:
-          requires:
-            - aws-ecr/build_and_push_image
+          account_id: ${AWS_ACCOUNT_ID}
+          auth:
+            - aws-cli/setup:
+                profile: OIDC-USER
+                role_arn: arn:aws:iam::855044123636:role/ec2_boyang_role
+          context: CircleCI_OIDC_Token
+          create_repo: true
+          dockerfile: Dockerfile
+          executors: base
+          extra_build_args: '--compress'
+          no_output_timeout: 20m
+          path: terraform/Dockerfile
+          platform: linux/amd64
+          profile_name: my-profile
+          public_registry: false
+          push_image: true
+          region: ${AWS_REGION}
+          repo: morofront
+          repo_encryption_kms_key: arn:aws:kms:ap-southeast-1:855044123636:key/524094d4-6b71-4219-81ef-94717f6a76a6
+          repo_encryption_type: KMS
+          repo_policy_path: repo-policy.json
+          repo_scan_on_push: true
+          set_repo_policy: true
+          skip_when_tags_exist: false
+          tag: latest,morofront
