@@ -18,7 +18,7 @@ jobs:
             sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
             sudo apt-get update && sudo apt-get install terraform
       - aws-cli/setup:
-          profile-name: my-profile  # Change from profile-name to profile
+          profile: my-profile  # Change from profile-name to profile
           role_arn: arn:aws:iam::855044123636:role/ec2_boyang_role
       - run:
           name: Run terraform
@@ -35,7 +35,7 @@ workflows:
           account_id: ${AWS_ACCOUNT_ID}
           auth:
             - aws-cli/setup:
-                profile-name: my-profile
+                profile: my-profile
                 role_arn: arn:aws:iam::855044123636:role/ec2_boyang_role
           context: CircleCI_OIDC_Token
           create_repo: true
