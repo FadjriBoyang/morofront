@@ -11,7 +11,7 @@ terraform {
 
 provider "aws" {
   profile = "default"
-  region = "ap-southeast-1"
+  region = "<AWS_REGION>"
 
 resource "aws_iam_role" "iam_role" {
     name = "ec2_boyang_role"
