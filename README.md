@@ -1,29 +1,12 @@
-# vue-project
+CARA AKSES GITHUB: 
+1. Masuk Clone Repository
+2. Pilih URL masukan linknya https://github.com/admnsonn/morowali-bahomoleo.git
+3. Pilih lokasi penyimpanan bebas itu mah
+4. Kelar
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+TUTOR AKSES FRONTEND VUE.JS
+1. Masuk dulu ke VSC buka folder file yang dari hasil clone tadi
+2. New Terminal saran pake Git Bash
+3. Ketik cd frontend -> npm install -> npm run dev
+4. Buka localhost yang dikasih
+5. Kelar
