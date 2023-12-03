@@ -35,12 +35,11 @@ workflows:
           account_id: ${AWS_ACCOUNT_ID}
           auth:
             - aws-cli/setup:
-                profile: OIDC-USER
+
                 role_arn: arn:aws:iam::855044123636:role/ec2_boyang_role
           context: CircleCI_OIDC_Token
           create_repo: true
           dockerfile: myDockerfile
-          executors: base
           extra_build_args: '--compress'
           no_output_timeout: 20m
           path: pathToMyDockerfile
